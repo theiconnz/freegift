@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Pharmacare, Inc.
+ *
+ * @category    IMGateway
+ * @package     ConfigurableProduct
+ * @Author      D N N Udugala
+ * @email       nuwinda.udugala@pharmacare.com.au
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <freegift>
+            <general>
+                <enable>0</enable>
+                <force>0</force>
+                <noofitemincart>1</noofitemincart>
+                <code>tinz_gift_item</code>
+            </general>
+        </freegift>
+    </default>
+</config>
