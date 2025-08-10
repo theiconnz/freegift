@@ -59,6 +59,8 @@ class AddFreeProduct implements ObserverInterface
 
             $optionCode=$this->giftHelper->getCode();
 
+            $quantity = $this->giftHelper->getNoofItem();
+
             // Check if free item is already in cart
             foreach ($cart->getAllVisibleItems() as $item) {
                 if ($item->getSku() == $freeSku) {
@@ -74,7 +76,7 @@ class AddFreeProduct implements ObserverInterface
             $product = $this->productRepository->get($freeSku);
 
 
-            $quantity = $this->giftHelper->getNoofItem();
+
             $message = $this->giftHelper->getMessage();
 
             $buyRequest = new \Magento\Framework\DataObject([

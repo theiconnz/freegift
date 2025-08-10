@@ -59,9 +59,19 @@ class RemoveFreeProduct implements ObserverInterface
 
             // Set price to 0
             $items = $quote->getAllVisibleItems();
-            if (count($items) === 1) {
-                $item = reset($items); // Get the first (and only) item
-
+            $item = reset($items);
+            if (count($items) === 1) {// Get the first (and only) item
+                if($item->getSku() == $freeSku) {
+                    $option = $item->getOptionByCode($optionCode);
+                    if ($option) {
+                        $quote->removeItem($item->getItemId());
+                        $quote->collectTotals()->save();
+                    }
+                }
+            } else {
+                //check if free item is in cart
+                // If not add free item
+                $freeitemInCart=false;
                 if($item->getSku() == $freeSku) {
                     $option = $item->getOptionByCode($optionCode);
                     if ($option) {
